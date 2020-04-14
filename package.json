@@ -1,0 +1,26 @@
+{
+  "name": "nature-of-code",
+  "version": "0.0.1",
+  "main": "index.html",
+  "repository": "git@goodrobot.net:jdcantrell/nature-of-code.git",
+  "author": "JD Cantrell <jd@goodrobot.net>",
+  "license": "GPL-3.0",
+  "private": false,
+  "scripts": {
+    "dev": "node server.js & browser-sync start --no-notify --proxy 'localhost:8080' --files './css' './js' './templates' --port 8001"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "prettier": "^2.0.4"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "morgan": "^1.10.0",
+    "p5": "^1.0.0"
+  }
+}

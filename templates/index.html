@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Walk</title>
+    <link href="/css/base.css" rel="stylesheet" />
+    <script src="/vendor/p5.min.js"></script>
+    <script src="/js/{{current}}.js"></script>
+  </head>
+  <body>
+    <ul>
+      {{#each experiments}} {{#if (eq "current" this)}}
+      <li class="active">
+        <span class="link-highlight"><a href="/{{this}}">{{this}}</a></span>
+      </li>
+      {{else}}
+      <li>
+        <span class="link-highlight"><a href="/{{this}}">{{this}}</a></span>
+      </li>
+      {{/if}} {{/each}}
+    </ul>
+    <h1>{{current}}</h1>
+  </body>
+</html>

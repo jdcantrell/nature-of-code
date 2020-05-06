@@ -7,9 +7,11 @@
   "license": "GPL-3.0",
   "private": false,
   "scripts": {
+    "start": "node server.js",
     "dev": "node server.js & browser-sync start --no-notify --proxy 'localhost:8080' --files './css' './js' './templates' --port 8001"
   },
   "devDependencies": {
+    "browser-sync": "^2.26.7",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.1",
@@ -17,7 +19,6 @@
     "prettier": "^2.0.4"
   },
   "dependencies": {
-    "browser-sync": "^2.26.7",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
     "morgan": "^1.10.0",

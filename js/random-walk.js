@@ -24,8 +24,12 @@ class Walker {
 }
 
 function setup() {
-  createCanvas(640, 480);
+  var canvas = createCanvas(640, 480);
   background(255);
+  canvas.style("max-width", "100vw");
+  canvas.style("max-height", "calc(100vh - 180px)");
+  canvas.style("height", "auto");
+  canvas.style("width", "auto");
 }
 
 const w = new Walker(640, 480);

@@ -23,7 +23,19 @@ app.set("views", `${__dirname}/templates`);
 
 app.get("/:experiment?", (req, res) => {
   // get list of experiments
-  const files = fs.readdirSync("./js/").map((file) => file.replace(".js", ""));
+  const files = fs
+    .readdirSync("./js/")
+    .map((file) => {
+      console.log(file, fs.statSync(`./js/${file}`).mtime.getTime());
+      return {
+        name: file.replace(".js", ""),
+        time: fs.statSync(`./js/${file}`).mtime.getTime(),
+      };
+    })
+    .sort((a, b) => b.time - a.time)
+    .map((v) => v.name);
+
+  console.log(files);
 
   let current;
   if (req.params.experiment) {
@@ -37,13 +49,13 @@ app.get("/:experiment?", (req, res) => {
     }
   } else {
     // randomly pick one
-    current = files[Math.round(Math.random() * (files.length - 1))];
+    current = files[0];
   }
 
   // generate html
   res.render("index.html", {
     current,
-    experiments: files.sort(),
+    experiments: files,
   });
 });
 
